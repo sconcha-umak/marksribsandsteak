@@ -1,11 +1,15 @@
 import './App.css'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import MenuSection from './components/MenuSection'
-import Testimonials from './components/Testimonials'
-import Footer from './components/Footer'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/layout/Header'
+import Hero from './components/layout/Hero'
+import MenuSection from './components/layout/MenuSection'
+import Testimonials from './components/layout/Testimonials'
+import Footer from './components/layout/Footer'
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
 
-function App() {
+
+function HomePage() {
   return (
     <div className="font-sans min-h-screen bg-white overflow-x-hidden">
       <Header />
@@ -16,6 +20,18 @@ function App() {
       </main>
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
   )
 }
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,15 +52,14 @@ export default function Header() {
                   className="hover:text-primary transition-colors duration-300 text-sm lg:text-base font-medium py-2 px-1 border-b-2 border-transparent hover:border-primary"
                 >
                   Contact
-                </a>
-              </li>
+                </a>              </li>
               <li>
-                <a
-                  href="#Login"
-                  className="hover:text-primary transition-colors duration-300 text-sm lg:text-base font-medium py-2 px-1 border-b-2 border-transparent hover:border-primary" 
+                <Link
+                  to="/login"
+                  className="bg-primary text-white px-4 py-2 rounded-md hover:bg-yellow-400 transition-colors duration-300"
                 >
                   Login
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -126,8 +126,14 @@ export default function Header() {
             className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-primary hover:bg-white hover:bg-opacity-10 transition-colors duration-300"
             onClick={() => setIsMenuOpen(false)}
           >
-            Contact
-          </a>
+            Contact          </a>
+          <Link
+            to="/login"
+            className="w-full text-left bg-primary text-white px-4 py-2 rounded-md hover:bg-yellow-400 transition-colors duration-300 block"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Login
+          </Link>
         </div>
       </div>
     </header>
